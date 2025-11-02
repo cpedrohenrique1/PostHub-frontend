@@ -1,0 +1,17 @@
+<main class="p-16 h-screen flex justify-center items-center flex-col">
+    <form class="m-5 border-blue-600 border-4 p-8 rounded-2xl flex flex-col justify-around gap-2 w-96">
+        <h1 class="text-4xl text-center mt-2 font-semibold">Login page</h1>
+        <fieldset class="fieldset">
+            <legend class="fieldset-legend">Username</legend>
+            <input required type="text" name="username" id="username" class="input" placeholder="Username" />
+            <p class="label text-red-700">required</p>
+        </fieldset>
+        <fieldset class="fieldset">
+            <legend class="fieldset-legend">Password</legend>
+            <input required type="password" name="password" id="password" class="input" placeholder="Password" />
+            <p class="label text-red-700">required</p>
+        </fieldset>
+        <button type="submit" class="btn btn-success">Fazer login</button>
+        <a routerLink="/register" class="text-gray-400">Doesn't has an account? register here</a>
+    </form>
+</main>
