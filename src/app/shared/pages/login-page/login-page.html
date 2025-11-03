@@ -4,14 +4,14 @@
         <fieldset class="fieldset">
             <legend class="fieldset-legend">Username</legend>
             <input required type="text" name="username" id="username" class="input" placeholder="Username" />
-            <p class="label text-red-700">required</p>
+            <label for="username" class="label text-red-700">*required</label>
         </fieldset>
         <fieldset class="fieldset">
             <legend class="fieldset-legend">Password</legend>
             <input required type="password" name="password" id="password" class="input" placeholder="Password" />
-            <p class="label text-red-700">required</p>
+            <label for="password" class="label text-red-700">*required</label>
         </fieldset>
-        <button type="submit" class="btn btn-success">Fazer login</button>
+        <button type="submit" class="btn btn-success" routerLink="/">Fazer login</button>
         <a routerLink="/register" class="text-neutral-500 font-semibold">Doesn't has an account? Register here</a>
     </form>
 </main>
