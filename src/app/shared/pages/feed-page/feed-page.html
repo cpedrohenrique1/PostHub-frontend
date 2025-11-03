@@ -1,9 +1,10 @@
 <header>
     <app-main-header/>
 </header>
-<main class="p-8 w-2/3 border-2 border-primary bg-base rounded-2xl bg- h-screen m-auto">
-    <div class="flex items-end justify-end gap-4">
+<main class="flex flex-col gap-5 p-8 w-3/4 border-2 border-primary bg-base rounded-2xl bg- h-screen m-auto">
+    <div class="flex flex-col md:flex-row gap-4 items-end justify-items-end">
         <textarea class="textarea w-full p-4" placeholder="What are you thinking?"></textarea>
-        <button type="button" class="btn btn-primary">Postar</button>
+        <button type="button" class="btn btn-primary btn-wide">Postar</button>
     </div>
+    <app-post-component></app-post-component>
 </main>

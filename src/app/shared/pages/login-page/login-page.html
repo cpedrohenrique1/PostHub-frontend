@@ -1,17 +1,20 @@
 <main class="p-16 h-screen flex justify-center items-center flex-col">
-    <form class="m-5 border-4 border-primary p-8 rounded-2xl flex flex-col justify-around gap-2 w-96">
+    <form (ngSubmit)="onSubmit()" #form="ngForm"
+        class="m-5 border-4 border-primary p-8 rounded-2xl flex flex-col justify-around gap-2 w-96">
         <h1 class="text-4xl text-center mt-2 font-semibold">Login page</h1>
         <fieldset class="fieldset">
             <legend class="fieldset-legend">Username</legend>
-            <input required type="text" name="username" id="username" class="input" placeholder="Username" />
-            <label for="username" class="label text-red-700">*required</label>
+            <input required type="text" name="username" id="username" class="input validator" placeholder="Username"
+                minlength="3" />
+            <label for="username" class="mt-0 validator-hint label text-red-700">Ao menos 3 caracteres</label>
         </fieldset>
         <fieldset class="fieldset">
             <legend class="fieldset-legend">Password</legend>
-            <input required type="password" name="password" id="password" class="input" placeholder="Password" />
-            <label for="password" class="label text-red-700">*required</label>
+            <input required type="password" name="password" id="password" class="input validator" placeholder="********"
+                minlength="8" />
+            <label for="password" class="mt-0 validator-hint label text-red-700">Ao menos 8 caracteres</label>
         </fieldset>
-        <button type="submit" class="btn btn-success" routerLink="/">Fazer login</button>
+        <button type="submit" class="btn btn-success">Fazer login</button>
         <a routerLink="/register" class="text-neutral-500 font-semibold">Doesn't has an account? Register here</a>
     </form>
 </main>
