@@ -1,9 +1,10 @@
 import { Component, Input } from '@angular/core';
 import PostComponentInterface from '../../interfaces/postComponent.interface';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-post-component',
-  imports: [],
+  imports: [NgClass],
   templateUrl: './post-component.html',
   styleUrl: './post-component.css',
 })
@@ -13,18 +14,12 @@ export class PostComponent {
     content: 'Ola gente, primeiro post aqui!',
     time: '2 hours ago'
   };
-  cores = ['indigo-700', 'amber-700', 'blue-700', 'cyan-700', 'emerald-700', 'fuchsia-700', 'gray-700', 'green-700', 'lime-700', 'neutral-700', 'orange-700', 'pink-700', 'purple-700', 'red-700', 'rose-700', 'sky-700', 'slate-700', 'stone-700', 'teal-700', 'violet-700', 'yellow-700', 'zinc-700'];
-  
-  coresWhite = ['indigo-200', 'amber-200', 'blue-200', 'cyan-200', 'emerald-200', 'fuchsia-200', 'gray-200', 'green-200', 'lime-200', 'neutral-200', 'orange-200', 'pink-200', 'purple-200', 'red-200', 'rose-200', 'sky-200', 'slate-200', 'stone-200', 'teal-200', 'violet-200', 'yellow-200', 'zinc-200'];
-  
-  randomColor: string = "";
-  randomColorWhite: string = '';
-  
-  classes: string = '';
-  ngOnInit() {
-    this.randomColor = this.cores[Math.floor(Math.random() * this.randomColor.length)];
-    this.randomColorWhite = this.coresWhite[Math.floor(Math.random() * this.randomColor.length)];
 
-    this.classes = `bg-${this.randomColorWhite} dark:bg-${this.randomColor}`;
+  cores: string[] = ['bg-indigo-200 dark:bg-indigo-700', 'bg-amber-200 dark:bg-amber-700', 'bg-blue-200 dark:bg-blue-700', 'bg-cyan-200 dark:bg-cyan-700', 'bg-emerald-200 dark:bg-emerald-700', 'bg-fuchsia-200 dark:bg-fuchsia-700', 'bg-gray-200 dark:bg-gray-700', 'bg-green-200 dark:bg-green-700', 'bg-lime-200 dark:bg-lime-700', 'bg-neutral-200 dark:bg-neutral-700', 'bg-orange-200 dark:bg-orange-700', 'bg-pink-200 dark:bg-pink-700', 'bg-purple-200 dark:bg-purple-700', 'bg-red-200 dark:bg-red-700', 'bg-rose-200 dark:bg-rose-700', 'bg-sky-200 dark:bg-sky-700', 'bg-slate-200 dark:bg-slate-700', 'bg-stone-200 dark:bg-stone-700', 'bg-teal-200 dark:bg-teal-700', 'bg-violet-200 dark:bg-violet-700', 'bg-yellow-200 dark:bg-yellow-700', 'bg-zinc-200 dark:bg-zinc-700'];
+
+  randomColor: string = "";
+
+  ngOnInit() {
+    this.randomColor = this.cores[Math.floor(Math.random() * this.cores.length)];
   }
 }
