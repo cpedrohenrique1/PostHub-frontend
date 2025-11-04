@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { Router, RouterLink } from "@angular/router";
 import { FormsModule } from '@angular/forms'
-import LoginForm from '../../interfaces/loginForm.interface';
+import LoginFormInterface from '../../interfaces/loginForm.interface';
 
 @Component({
   selector: 'app-login-page',
@@ -11,7 +11,7 @@ import LoginForm from '../../interfaces/loginForm.interface';
 })
 export class LoginPage {
   router: Router = inject(Router);
-  userData: LoginForm = {
+  userData: LoginFormInterface = {
     username: "",
     password: ""
   };

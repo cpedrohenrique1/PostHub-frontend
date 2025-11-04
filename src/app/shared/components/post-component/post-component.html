@@ -1,4 +1,9 @@
-<div class="">
-    <p>Username</p>
-    <p class="">conteudo do post</p>
+<div class="container">
+    <div class="chat chat-start gap-1">
+        <div class="chat-header">
+            {{post.username}}
+        </div>
+        <div class="chat-bubble bg-{{randomColor}}">{{post.content}}</div>
+        <time class="chat-footer opacity-50">{{post.time}}</time>
+    </div>
 </div>

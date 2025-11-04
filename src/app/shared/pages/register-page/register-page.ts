@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from "@angular/router";
-import RegisterForm from '../../interfaces/registerForm.interface';
+import RegisterFormInterface from '../../interfaces/registerForm.interface';
 
 @Component({
   selector: 'app-register-page',
@@ -10,7 +10,7 @@ import RegisterForm from '../../interfaces/registerForm.interface';
   styleUrl: './register-page.css',
 })
 export class RegisterPage {
-  userData: RegisterForm = {
+  userData: RegisterFormInterface = {
     email: "",
     username: "",
     password: ""
