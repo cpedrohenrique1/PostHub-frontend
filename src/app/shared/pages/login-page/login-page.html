@@ -4,17 +4,21 @@
         <h1 class="text-4xl text-center mt-2 font-semibold">Login page</h1>
         <fieldset class="fieldset">
             <legend class="fieldset-legend">Username</legend>
-            <input required type="text" name="username" id="username" class="input validator" placeholder="Username"
+            <input required type="text" #username="ngModel" [(ngModel)]="userData.username" name="username" id="username" class="input validator" placeholder="Username"
                 minlength="3" />
-            <label for="username" class="mt-0 validator-hint label text-red-700">Ao menos 3 caracteres</label>
+            @if (username.hasError('required') || username.hasError('minlength')) {
+                <label for="username" class="mt-0 validator-hint label text-red-700">Ao menos 3 caracteres</label>
+            }
         </fieldset>
         <fieldset class="fieldset">
             <legend class="fieldset-legend">Password</legend>
-            <input required type="password" name="password" id="password" class="input validator" placeholder="********"
+            <input required type="password" #password="ngModel" [(ngModel)]="userData.password" name="password" id="password" class="input validator" placeholder="********"
                 minlength="8" />
-            <label for="password" class="mt-0 validator-hint label text-red-700">Ao menos 8 caracteres</label>
+            @if (password.hasError('required') || password.hasError('minlength')) {
+                <label for="password" class="mt-0 validator-hint label text-red-700">Ao menos 8 caracteres</label>
+            }
         </fieldset>
-        <button type="submit" class="btn btn-success">Fazer login</button>
+        <button type="submit" [disabled]="form.invalid" class="btn btn-success">Fazer login</button>
         <a routerLink="/register" class="text-neutral-500 font-semibold">Doesn't has an account? Register here</a>
     </form>
 </main>

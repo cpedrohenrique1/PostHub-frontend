@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { Router, RouterLink } from "@angular/router";
 import { FormsModule } from '@angular/forms'
+import LoginForm from '../../interfaces/loginForm.interface';
 
 @Component({
   selector: 'app-login-page',
@@ -10,6 +11,10 @@ import { FormsModule } from '@angular/forms'
 })
 export class LoginPage {
   router: Router = inject(Router);
+  userData: LoginForm = {
+    username: "",
+    password: ""
+  };
 
   onSubmit(){
     return this.router.navigateByUrl('/');
