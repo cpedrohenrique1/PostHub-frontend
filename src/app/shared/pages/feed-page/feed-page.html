@@ -4,7 +4,7 @@
 <main class="flex flex-col gap-5 p-8 w-3/4 border-2 border-primary bg-base rounded-2xl bg- h-screen m-auto">
     <h1 class="text-3xl">Feed</h1>
     <form #form="ngForm" class="flex flex-col md:flex-row gap-4 items-end justify-items-end">
-        <textarea maxlength="120" [(ngModel)]="post.content" name="postContent" title="Max length 120 characters" class="input textarea w-full p-4" placeholder="What are you thinking?"></textarea>
+        <textarea maxlength="120" [(ngModel)]="post.content" name="postContent" title="Max length 120 characters" class="textarea w-full p-4" placeholder="What are you thinking?"></textarea>
         <button type="button" class="btn btn-primary btn-wide">Postar</button>
     </form>
     <app-post-component [post]="post" ></app-post-component>
