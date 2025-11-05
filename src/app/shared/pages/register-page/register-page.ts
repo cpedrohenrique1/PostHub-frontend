@@ -1,7 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterLink } from "@angular/router";
+import { Router, RouterLink } from "@angular/router";
 import RegisterFormInterface from '../../interfaces/registerForm.interface';
+import { LoginService } from '../../services/login-service';
 
 @Component({
   selector: 'app-register-page',
@@ -10,6 +11,8 @@ import RegisterFormInterface from '../../interfaces/registerForm.interface';
   styleUrl: './register-page.css',
 })
 export class RegisterPage {
+  loginService: LoginService = inject(LoginService);
+  router: Router = inject(Router);
   userData: RegisterFormInterface = {
     email: "",
     username: "",
@@ -17,6 +20,15 @@ export class RegisterPage {
   }
 
   onSubmit(){
+    this.loginService.register(this.userData).subscribe({
+      next:(response) => {
+        console.log(response);
+        this.router.createUrlTree(['/']);
+      },
+      error:()=> {
 
+      }
+    }
+    );
   }
 }
