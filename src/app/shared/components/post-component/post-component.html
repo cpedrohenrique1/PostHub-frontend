@@ -1,7 +1,7 @@
 <div class="container">
     <div class="chat chat-start gap-1">
-        <div class="chat-header">
-            {{post.username}}
+        <div class="chat-header text-base">
+            @{{post.username}}
         </div>
         <div class="chat-bubble" [ngClass]="randomColor">{{post.content}}</div>
         <time class="chat-footer opacity-50">{{post.creationTimestamp.toLocaleString()}}</time>
