@@ -1,28 +1,39 @@
 <main class="p-16 h-screen flex justify-center items-center flex-col">
-    <form #form="ngForm" (ngSubmit)="onSubmit()" class="m-5 border-4 border-primary p-8 rounded-2xl flex flex-col justify-around gap-2 w-96">
-        <h1 class="text-4xl text-center mt-2 font-semibold">Register page</h1>
+    <form #form="ngForm" (ngSubmit)="onSubmit()"
+        class="m-5 border-4 border-primary p-8 rounded-2xl flex flex-col justify-around gap-2 w-96">
+        <h1 class="text-4xl text-center mt-2 font-semibold">Register</h1>
         <fieldset class="fieldset">
             <legend class="fieldset-legend">Username</legend>
-            <input required type="text" #username="ngModel" [(ngModel)]="userData.username" name="username" id="username" class="input validator" minlength="3" placeholder="Username" />
+            <input required type="text" #username="ngModel" [(ngModel)]="userData.username" name="username"
+                id="username" class="input validator" minlength="3" placeholder="Username" />
             @if (username.hasError('required') || username.hasError('minLength')) {
-                <label for="username" class="mt-0 label validator-hint text-red-700">Ao menos 3 caracteres</label>
+            <label for="username" class="mt-0 label validator-hint text-red-700">Ao menos 3 caracteres</label>
             }
         </fieldset>
         <fieldset class="fieldset">
             <legend class="fieldset-legend">Email</legend>
-            <input required type="email" #email="ngModel" [(ngModel)]="userData.email" name="email" id="email" class="input validator" placeholder="email@email.com" />
+            <input required type="email" #email="ngModel" [(ngModel)]="userData.email" name="email" id="email"
+                class="input validator" placeholder="email@email.com" />
             @if (email.hasError('required')) {
             <label for="email" class="mt-0 label validator-hint text-red-700">*required</label>
             }
         </fieldset>
         <fieldset class="fieldset">
             <legend class="fieldset-legend">Password</legend>
-            <input required type="password" #password="ngModel" [(ngModel)]="userData.password" name="password" id="password" class="input validator" minlength="8" placeholder="********" />
+            <input required type="password" #password="ngModel" [(ngModel)]="userData.password" name="password"
+                id="password" class="input validator" minlength="8" placeholder="********" />
             @if (password.hasError('required') || password.hasError('minLength')) {
-                <label for="password" class="mt-0 label validator-hint text-red-700">Ao menos 8 caracteres</label>
+            <label for="password" class="mt-0 label validator-hint text-red-700">Ao menos 8 caracteres</label>
             }
         </fieldset>
         <button type="submit" [disabled]="form.invalid" class="btn btn-success">Cadastrar</button>
         <a routerLink="/login" class="text-neutral-500 font-semibold">Already has an account? Click here to login</a>
     </form>
+    @if (loginError) {
+    <div class="toast">
+        <div class="alert alert-error">
+            <span>Erro ao cadastrar, tente novamente.</span>
+        </div>
+    </div>
+    }
 </main>

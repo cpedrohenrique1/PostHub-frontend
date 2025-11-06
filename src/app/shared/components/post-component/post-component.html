@@ -4,6 +4,6 @@
             {{post.username}}
         </div>
         <div class="chat-bubble" [ngClass]="randomColor">{{post.content}}</div>
-        <time class="chat-footer opacity-50">{{post.time}}</time>
+        <time class="chat-footer opacity-50">{{post.creationTimestamp.toLocaleString()}}</time>
     </div>
 </div>

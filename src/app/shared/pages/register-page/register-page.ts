@@ -18,15 +18,15 @@ export class RegisterPage {
     username: "",
     password: ""
   }
+  loginError: boolean = false;
 
   onSubmit(){
     this.loginService.register(this.userData).subscribe({
-      next:(response) => {
-        console.log(response);
-        this.router.createUrlTree(['/']);
+      next:() => {
+        this.router.navigateByUrl('/login');
       },
       error:()=> {
-
+        this.loginError = true;
       }
     }
     );
