@@ -1,11 +1,12 @@
 <header>
     <app-main-header />
 </header>
-<main class="flex flex-col gap-5 p-8 w-3/4 border-2 border-primary bg-base rounded-2xl bg- h-screen m-auto">
-    <h1 class="text-3xl">Feed</h1>
+<main class="m-auto mb-10 flex flex-col gap-5 p-8 w-3/4 border-2 border-primary bg-base rounded-2xl h-auto">
+    <h1 class="text-3xl">PostHub</h1>
     <form #form="ngForm" class="flex flex-col md:flex-row gap-4 items-end justify-items-end">
-        <textarea maxlength="120" [(ngModel)]="sentPost.content" name="sentPostContent" title="Max length 120 characters"
-            class="textarea w-full p-4" placeholder="What are you thinking?"></textarea>
+        <textarea maxlength="120" [(ngModel)]="sentPost.content" name="sentPostContent"
+            title="Max length 120 characters" class="textarea w-full p-4"
+            placeholder="What are you thinking?"></textarea>
         <button type="button" (click)="MakePost()" class="btn btn-primary btn-wide">Postar</button>
     </form>
     @for (item of posts(); track $index) {
@@ -23,6 +24,12 @@
         <div class="alert alert-error">
             <span>Não foi possível realizar o post, tente novamente.</span>
         </div>
+    </div>
+    }
+    @if(feedInfo.pageSize < feedInfo.totalElements){
+    <div class="join grid grid-cols-2">
+        <button class="join-item btn btn-outline" (click)="previousPage()" >Previous page</button>
+        <button class="join-item btn btn-outline" (click)="nextPage()">Next</button>
     </div>
     }
 </main>

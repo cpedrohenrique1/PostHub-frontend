@@ -15,7 +15,7 @@ export class FeedService {
     return this.http.post(`${this.url}/posts`, dados);
   }
 
-  getFeed(){
-    return this.http.get<FeedInfoInterface>(`${this.url}/feed`);
+  getFeed(page: number){
+    return this.http.get<FeedInfoInterface>(`${this.url}/feed?pageSize=10&page=${page}`);
   }
 }
